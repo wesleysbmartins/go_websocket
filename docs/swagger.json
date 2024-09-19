@@ -1,0 +1,58 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "description": "Retorna uma string \"Hello, i am Golang Websocket Server!\"",
+                "tags": [
+                    "health check"
+                ],
+                "summary": "Mostra uma mensagem de hello",
+                "responses": {
+                    "200": {
+                        "description": "Hello, i am Golang Websocket Server!",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/ws": {
+            "get": {
+                "description": "Estabelece uma conexão WebSocket com a sala especificada",
+                "tags": [
+                    "websocket"
+                ],
+                "summary": "Conexão Websocket",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nome da sala",
+                        "name": "room",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Nome do usuário",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "101": {
+                        "description": "Switching Protocols",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

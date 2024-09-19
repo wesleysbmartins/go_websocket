@@ -1,0 +1,37 @@
+info:
+  contact: {}
+paths:
+  /:
+    get:
+      description: Retorna uma string "Hello, i am Golang Websocket Server!"
+      responses:
+        "200":
+          description: Hello, i am Golang Websocket Server!
+          schema:
+            type: string
+      summary: Mostra uma mensagem de hello
+      tags:
+      - health check
+  /ws:
+    get:
+      description: Estabelece uma conexão WebSocket com a sala especificada
+      parameters:
+      - description: Nome da sala
+        in: query
+        name: room
+        required: true
+        type: string
+      - description: Nome do usuário
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "101":
+          description: Switching Protocols
+          schema:
+            type: string
+      summary: Conexão Websocket
+      tags:
+      - websocket
+swagger: "2.0"
